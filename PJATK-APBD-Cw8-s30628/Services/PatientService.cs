@@ -75,7 +75,7 @@ public class PatientService(HospitalDbContext ctx) : IPatientService
         var bedType = await ctx.BedTypes.FirstOrDefaultAsync(bt => bt.Name == dto.BedType, cancellationToken)
                       ?? throw new NotFoundException($"Lozko o typie '{dto.BedType}' nie istnieje");
 
-        if (dto.To.HasValue && dto.To.Value < dto.From) throw new BadRequestException("Odpis musi byc pozniejszy niz zapis");
+        if (dto.To.HasValue && dto.To.Value <= dto.From) throw new BadRequestException("Odpis musi byc pozniejszy niz zapis");
         
         var availableBed = await ctx.Beds
                                .Where(b => b.BedTypeId == bedType.Id)
