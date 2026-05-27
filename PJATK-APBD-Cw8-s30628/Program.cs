@@ -27,6 +27,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
-// + komenda na scaffold, ktorej uzylem do wygenerowania bazy
-// dotnet ef dbcontext scaffold "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master" Microsoft.EntityFrameworkCore.SqlServer --context HospitalDbContext --context-dir Infrastructure --output-dir Models --no-onconfiguring --table Patients --table Admissions --table Wards --table Beds --table BedTypes --table Rooms --table BedAssignments --force
